@@ -7,7 +7,7 @@ RUN apk --no-cache add git make
 
 RUN mkdir /work \
  && cd /work \
- && git clone -b "${GITEA_VERSION}" --single-branch --depth 1 "${GITEA_GIT_URL}" \
+ && git  -c advice.detachedHead=false clone -b "${GITEA_VERSION}" --single-branch --depth 1 "${GITEA_GIT_URL}" \
  && cd gitea \
  && make frontend
 
