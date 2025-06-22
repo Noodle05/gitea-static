@@ -1,4 +1,4 @@
-FROM node:lts-alpine AS builder
+FROM --platform=${BUILDPLATFORM} node:lts-alpine AS builder
 
 ARG GITEA_VERSION=v1.16.6
 ARG GITEA_GIT_URL=https://github.com/go-gitea/gitea.git
@@ -11,7 +11,7 @@ RUN mkdir /work \
  && cd gitea \
  && make frontend
 
-FROM alpine:latest
+FROM --platform=${TARGETPLATFORM} alpine:latest
 
 LABEL maintainer='Wei Gao<wei@gaofamily.org>'
 
