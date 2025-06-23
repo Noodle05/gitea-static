@@ -11,7 +11,7 @@ RUN mkdir /work \
  && cd gitea \
  && make frontend
 
-FROM --platform=${TARGETPLATFORM} alpine:latest
+FROM alpine:latest
 
 LABEL maintainer='Wei Gao<wei@gaofamily.org>'
 
